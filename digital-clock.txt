@@ -1,0 +1,32 @@
+import React, { Component } from 'react';
+import { AppRegistry, View, Text, StyleSheet, Platform } from 'react-native';
+
+export default class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = { currentTime: null, currentDay: null }
+    this.daysArray = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  }
+
+  componentWillMount() {
+    this.getCurrentTime();
+  }
+
+  getCurrentTime = () => {
+    let hour = new Date().getHours();
+    let minutes = new Date().getMinutes();
+    let seconds = new Date().getSeconds();
+    let am_pm = 'pm';
+
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
+
+    if (seconds < 10) {
+      seconds = '0' + seconds;
+    }
+
+    if (hour > 12) {
+      hour = hour - …
